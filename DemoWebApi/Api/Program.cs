@@ -23,6 +23,13 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors(c => c.AllowAnyHeader()
+    .WithMethods("GET", "POST")
+    .WithOrigins(
+        "http://localhost:4200", 
+        "http://localhost:80",
+        "https://localhost:443"
+        ));
 }
 
 app.UseHttpsRedirection();
